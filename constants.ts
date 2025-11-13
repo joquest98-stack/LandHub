@@ -1,4 +1,3 @@
-// This file contains constant data used throughout the application for demos and predefined options.
 
 import { User, UserRole, Listing, ListingStatus } from './types';
 
@@ -10,9 +9,7 @@ export const LAND_TYPES = [
     'Ranch',
 ];
 
-/**
- * A demo list of property listings.
- */
+
 export const LISTINGS: Listing[] = [
   {
     id: '1',

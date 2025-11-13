@@ -1,7 +1,5 @@
-// Import React to create the component.
 import React from 'react';
 
-// Data array containing the features to be displayed.
 const features = [
   {
     icon: (
@@ -15,7 +13,6 @@ const features = [
   },
   {
     icon: (
-      // SVG Icon for Transparency
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-cta-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
       </svg>
@@ -25,7 +22,6 @@ const features = [
   },
   {
     icon: (
-      // SVG Icon for Community
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-cta-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
          <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5zM10.5 18.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
       </svg>
@@ -35,7 +31,6 @@ const features = [
   },
   {
     icon: (
-      // SVG Icon for Secure Returns
        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-cta-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
       </svg>

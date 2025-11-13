@@ -1,4 +1,3 @@
-// Import React to create the component.
 import React from 'react';
 
 /**
@@ -6,7 +5,6 @@ import React from 'react';
  * Contains navigation links, legal information, social media links, and copyright notice.
  */
 const Footer: React.FC = () => {
-    // Data for quick navigation links.
     const quickLinks = [
         { name: 'Home', href: '#' },
         { name: 'How It Works', href: '#' },
@@ -16,7 +14,6 @@ const Footer: React.FC = () => {
         { name: 'Contact', href: '#' },
     ];
 
-    // Data for legal information links.
     const legalLinks = [
         { name: 'Terms of Service', href: '#' },
         { name: 'Privacy Policy', href: '#' },

@@ -1,6 +1,4 @@
-// Import createContext from React to create a new context.
 import { createContext } from 'react';
-// Import the AuthContextType for type safety.
 import { AuthContextType } from '../types';
 
 /**

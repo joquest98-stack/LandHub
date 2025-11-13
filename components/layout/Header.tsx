@@ -1,9 +1,6 @@
-// Import React and useState hook.
 import React, { useState } from 'react';
-// Import custom Button component.
 import Button from '../ui/Button';
 
-// Navigation links data.
 const NAV_LINKS = [
     { name: 'Home', href: '#' },
     { name: 'How It Works', href: '#' },

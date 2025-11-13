@@ -1,9 +1,8 @@
-// Import React and necessary types/components.
+
 import React from 'react';
 import { Listing } from '../../types';
 import Button from '../ui/Button';
 
-// Define the props interface for the PropertyCard component.
 interface PropertyCardProps {
   listing: Listing;
 }
@@ -28,7 +27,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ listing }) => {
   };
 
   return (
-    // Main card container with styling and hover effects.
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 group">
       {/* Image section */}
       <div className="relative">
