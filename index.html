@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Land Hub Platform</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'light-bg': '#fdfaf6',
+              'text-dark': '#3a2e25',
+              'accent-green': '#6a904d',
+              'cta-brown': '#c47d34',
+              'cta-brown-dark': '#a96826',
+              'subtle-gray': '#f3f4f6',
+              'white': '#ffffff',
+              'primary-navy': '#3a2e25',
+              'secondary-olive': '#6a904d',
+              'accent-gold': '#c47d34',
+              'warm-sand': '#fdfaf6',
+              'rich-tan': '#d2b48c',
+              'forest-green': '#3a2e25',
+              'terracotta': '#c47d34',
+              'ocean-blue': '#6a904d',
+              'sand-beige': '#fdfaf6',
+              'slate-gray': '#574b42',
+              'dark-charcoal': '#3a2e25',
+              'verified-green': '#38A169',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-light-bg text-text-dark">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
