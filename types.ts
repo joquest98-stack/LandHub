@@ -41,6 +41,8 @@ export interface Listing {
 
 // Page identifiers
 export enum Page {
+    HOME = 'HOME',
+    HOW_IT_WORKS = 'HOW_IT_WORKS',
     BUY_LAND = 'BUY_LAND',
 }
 

@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import Button from '../ui/Button';
+import { Page } from '../../types';
+
+interface HeaderProps {
+    onNavigate: (page: Page) => void;
+    currentPage: Page;
+}
 
 const NAV_LINKS = [
-    { name: 'Home', href: '#' },
-    { name: 'How It Works', href: '#' },
-    { name: 'Invest', href: '#' },
-    { name: 'Buy Land', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Home', page: Page.HOME },
+    { name: 'How It Works', page: Page.HOW_IT_WORKS },
+    { name: 'Invest', page: Page.BUY_LAND },
+    { name: 'Buy Land', page: Page.BUY_LAND },
+    { name: 'About', page: Page.HOME },
+    { name: 'Contact', page: Page.HOME },
 ];
 
 // Logo component
-const Logo: React.FC = () => (
-    <div className="flex items-center space-x-2">
+const Logo: React.FC<{ onNavigate: (page: Page) => void }> = ({ onNavigate }) => (
+    <div className="flex items-center space-x-2 cursor-pointer" onClick={() => onNavigate(Page.HOME)}>
         <div className="p-1.5 bg-gradient-to-br from-accent-green to-green-400 rounded-md">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -23,7 +29,7 @@ const Logo: React.FC = () => (
 );
 
 // Header component
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
@@ -31,20 +37,28 @@ const Header: React.FC = () => {
             <div className="max-w-7xl mx-auto bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/30">
                 <div className="flex items-center justify-between h-16 px-6">
                     <div className="flex-shrink-0">
-                        <a href="#" onClick={(e) => e.preventDefault()}>
-                            <Logo />
+                        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate(Page.HOME); }}>
+                            <Logo onNavigate={onNavigate} />
                         </a>
                     </div>
 
                     <div className="hidden md:flex items-center space-x-4">
                         <nav className="flex items-center space-x-2">
-                            {NAV_LINKS.map((link) => (
-                                <a key={link.name} href={link.href} onClick={(e) => e.preventDefault()} className="font-medium px-4 py-2 rounded-full text-text-dark hover:bg-black/5 transition-colors duration-300">
-                                    {link.name}
-                                </a>
-                            ))}
+                            {NAV_LINKS.map((link) => {
+                                const isActive = currentPage === link.page && link.name !== 'Invest' && link.name !== 'Buy Land' && link.name !== 'About' && link.name !== 'Contact';
+                                return (
+                                    <a 
+                                        key={link.name} 
+                                        href="#" 
+                                        onClick={(e) => { e.preventDefault(); onNavigate(link.page); }}
+                                        className={`font-medium px-4 py-2 rounded-full transition-colors duration-300 ${isActive ? 'bg-black/10 text-text-dark' : 'text-text-dark hover:bg-black/5'}`}
+                                    >
+                                        {link.name}
+                                    </a>
+                                )
+                            })}
                         </nav>
-                        <Button onClick={() => { /* no-op */ }} variant="primary" size="md">Get Started</Button>
+                        <Button onClick={() => onNavigate(Page.BUY_LAND)} variant="primary" size="md">Get Started</Button>
                     </div>
 
                     <div className="md:hidden flex items-center">
@@ -64,11 +78,18 @@ const Header: React.FC = () => {
                 <div className="md:hidden mt-2 max-w-7xl mx-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-white/30 overflow-hidden">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {NAV_LINKS.map((link) => (
-                            <a key={link.name} href={link.href} onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); }} className="block px-3 py-2 rounded-md text-base font-medium text-text-dark hover:bg-black/5">{link.name}</a>
+                            <a 
+                                key={link.name} 
+                                href="#" 
+                                onClick={(e) => { e.preventDefault(); onNavigate(link.page); setIsMobileMenuOpen(false); }} 
+                                className="block px-3 py-2 rounded-md text-base font-medium text-text-dark hover:bg-black/5"
+                            >
+                                {link.name}
+                            </a>
                         ))}
                     </div>
                     <div className="px-5 py-4">
-                        <Button onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">Get Started</Button>
+                        <Button onClick={() => { onNavigate(Page.BUY_LAND); setIsMobileMenuOpen(false); }} variant="primary" className="w-full">Get Started</Button>
                     </div>
                 </div>
             )}

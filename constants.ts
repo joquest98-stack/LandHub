@@ -68,3 +68,26 @@ export const LISTINGS: Listing[] = [
   },
 ];
 
+
+export const FAQS = [
+  {
+    question: 'What is fractional land ownership?',
+    answer: 'Fractional ownership allows multiple investors to co-own a piece of land. LandHub makes this possible by letting you invest an amount you are comfortable with, giving you a share of the property equivalent to your investment. This lowers the barrier to entry for land ownership.'
+  },
+  {
+    question: 'How does LandHub verify the properties?',
+    answer: 'Every property listed on LandHub undergoes a rigorous due diligence process. We partner with legal experts and surveyors to verify land titles, check for any encumbrances, confirm boundaries, and ensure all documentation is authentic and up-to-date.'
+  },
+  {
+    question: 'What kind of returns can I expect?',
+    answer: 'Returns are primarily based on the appreciation of the land\'s value. While we cannot guarantee specific returns, Ugandan land has historically shown strong appreciation. You can track the estimated value of your portfolio directly from your dashboard.'
+  },
+  {
+    question: 'Can I sell my shares in a property?',
+    answer: 'Yes. We are building a secondary marketplace that will allow you to list your shares for sale to other investors on the LandHub platform, providing you with liquidity for your investment.'
+  },
+  {
+    question: 'What fees are involved in the process?',
+    answer: 'LandHub is transparent about all costs. We charge a one-time administrative fee on your initial investment to cover legal verification and processing. There are no hidden recurring fees. All costs are clearly outlined before you confirm any investment.'
+  }
+];

@@ -1,17 +1,24 @@
 import React from 'react';
 import Button from '../components/ui/Button';
+import WhyChooseUs from '../components/layout/WhyChooseUs';
+import FeaturedProperties from '../components/home/FeaturedProperties';
+import { Page } from '../types';
+
+interface HomePageProps {
+  onNavigate: (page: Page) => void;
+}
 
 // The main landing page for the application.
-const HomePage: React.FC = () => {
+const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     return (
         <div className="w-full">
             <section 
-                className="relative h-screen flex items-center justify-center text-text-dark bg-cover bg-center "
+                className="relative min-h-screen flex items-center justify-center text-text-dark bg-cover bg-center"
                 style={{ backgroundImage: "url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1932&auto=format&fit=crop')" }}
             >
                 <div className="absolute inset-0 bg-light-bg opacity-30"></div>
                 
-                <div className="relative z-10 text-center px-4">
+                <div className="relative z-10 text-center px-4 pt-24 pb-12">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-text-dark leading-tight">
                         Own Land, <span className="text-cta-brown">One Step</span>
                         <br />
@@ -23,13 +30,13 @@ const HomePage: React.FC = () => {
                         Earn annual returns while building capital toward full ownership.
                     </p>
                     <div className="mt-10 flex justify-center gap-4 flex-wrap">
-                        <Button variant="primary" size="lg" onClick={() => { /* navigate to Invest (not available) */ }}>
+                        <Button variant="primary" size="lg" onClick={() => onNavigate(Page.BUY_LAND)}>
                             Start Investing in Land
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                             </svg>
                         </Button>
-                        <Button variant="secondary" size="lg" onClick={() => { /* show how it works (not available) */ }}>Learn How It Works</Button>
+                        <Button variant="secondary" size="lg" onClick={() => onNavigate(Page.HOW_IT_WORKS)}>Learn How It Works</Button>
                     </div>
 
                     <div className="mt-10 flex justify-center items-center gap-x-8 gap-y-2 flex-wrap font-medium">
@@ -48,6 +55,8 @@ const HomePage: React.FC = () => {
                     </div>
                 </div>
             </section>
+            <WhyChooseUs />
+            <FeaturedProperties />
         </div>
     );
 };
