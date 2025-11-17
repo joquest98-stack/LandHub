@@ -11,7 +11,7 @@ const NAV_LINKS = [
     { name: 'Home', page: Page.HOME },
     { name: 'How It Works', page: Page.HOW_IT_WORKS },
     { name: 'Invest', page: Page.BUY_LAND },
-    { name: 'Buy Land', page: Page.BUY_LAND },
+    { name: 'Buy Land', page: Page.HOME },
     { name: 'About', page: Page.HOME },
     { name: 'Contact', page: Page.HOME },
 ];

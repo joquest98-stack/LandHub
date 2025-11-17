@@ -1,4 +1,5 @@
 
+
 import { User, UserRole, Listing, ListingStatus } from './types';
 
 export const LAND_TYPES = [
@@ -16,11 +17,13 @@ export const LISTINGS: Listing[] = [
     title: 'Lake-Side Villa',
     location: 'Entebbe, Uganda',
     price: 75000,
-    area: 5.2,
+    area: 2,
     landType: 'Residential',
     imageUrl: 'https://images.unsplash.com/photo-1620832326873-95098ca0a89c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     status: ListingStatus.APPROVED,
-    description: 'A beautiful 5.2-acre lot with stunning coastal views. Perfect for building your dream home. Zoned for residential use with utilities nearby.'
+    description: 'A beautiful 5.2-acre lot with stunning coastal views. Perfect for building your dream home. Zoned for residential use with utilities nearby.',
+    roi: 12,
+    fundingProgress: 68,
   },
   {
     id: '2',
@@ -31,7 +34,9 @@ export const LISTINGS: Listing[] = [
     landType: 'Agricultural',
     imageUrl: 'https://images.unsplash.com/photo-1587012163890-428f413d89e9?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     status: ListingStatus.APPROVED,
-    description: '10 acres of pristine mountain land with breathtaking views of the Rockies. Ideal for a cabin, camping, or just enjoying nature.'
+    description: '1.5 acres of pristine farmland in Mukono.',
+    roi: 10,
+    fundingProgress: 45,
   },
   {
     id: '3',
@@ -42,7 +47,9 @@ export const LISTINGS: Listing[] = [
     landType: 'Agricultural',
     imageUrl: 'https://images.unsplash.com/photo-1464979681340-3293e10a6a84?q=80&w=1920&auto=format&fit=crop',
     status: ListingStatus.PENDING,
-    description: 'A large 25-acre tract of fertile land, perfect for farming. Currently pending final approval for sale.'
+    description: 'A large 3-acre tract of fertile land in Jinja, perfect for farming.',
+    roi: 15,
+    fundingProgress: 23,
   },
   {
     id: '4',
@@ -53,7 +60,9 @@ export const LISTINGS: Listing[] = [
     landType: 'Commercial',
     imageUrl: 'https://images.unsplash.com/photo-1614969263964-f381e32b337d?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     status: ListingStatus.APPROVED,
-    description: 'A prime 1.5-acre commercial plot in a rapidly developing urban area. Excellent investment opportunity.'
+    description: 'A prime 1.5-acre commercial plot in a rapidly developing urban area. Excellent investment opportunity.',
+    roi: 18,
+    fundingProgress: 92,
   },
   {
     id: '5',
@@ -64,7 +73,9 @@ export const LISTINGS: Listing[] = [
     landType: 'Recreational',
     imageUrl: 'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     status: ListingStatus.APPROVED,
-    description: 'An 8-acre wooded lot. Listing was rejected due to documentation issues, which are being resolved.'
+    description: 'An 8-acre wooded lot. Listing was rejected due to documentation issues, which are being resolved.',
+    roi: 9,
+    fundingProgress: 81,
   },
 ];
 

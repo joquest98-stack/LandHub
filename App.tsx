@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import { Page } from './types';
 import HowItWorksPage from './pages/HowItWorksPage';
+import InvestPage from './pages/Invest';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
@@ -19,6 +20,12 @@ const App: React.FC = () => {
         return <HomePage onNavigate={handleNavigate} />;
       case Page.HOW_IT_WORKS:
         return <HowItWorksPage onNavigate={handleNavigate} />;
+      case Page.INVEST:
+      case Page.BUY_LAND:
+        return <InvestPage />;
+      case Page.ABOUT:
+      case Page.CONTACT:
+        return <HomePage onNavigate={handleNavigate} />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

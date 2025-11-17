@@ -28,6 +28,8 @@ export enum ListingStatus {
 
 // Property listing
 export interface Listing {
+  fundingProgress: any;
+  roi: any;
   id: string;
   title: string;
   location: string;
@@ -44,6 +46,9 @@ export enum Page {
     HOME = 'HOME',
     HOW_IT_WORKS = 'HOW_IT_WORKS',
     BUY_LAND = 'BUY_LAND',
+    INVEST = "INVEST",
+    ABOUT = "ABOUT",
+    CONTACT = "CONTACT",
 }
 
 // Document status
