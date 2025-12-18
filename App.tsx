@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import HomePage from './pages/HomePage';
 import Footer from './components/layout/Footer';
@@ -10,15 +9,20 @@ import InvestPage from './pages/InvestPage';
 import PropertyDetailsPage from './pages/PropertyDetailsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import GetStartedPage from './pages/GetStartedPage';
+import { ThemeProvider } from './contexts/ThemeContext';
 
-const App: Reagitct.FC = () => {
+const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
   const [previousPage, setPreviousPage] = useState<Page>(Page.HOME);
   const [selectedListingId, setSelectedListingId] = useState<string | null>(null);
 
   const handleNavigate = (page: Page) => {
+    if (currentPage !== page) {
+        setPreviousPage(currentPage);
+    }
     setCurrentPage(page);
-    window.scrollTo(0, 0); // Scroll to top on page change
+    window.scrollTo(0, 0); 
   };
 
   const handleShowDetails = (id: string) => {
@@ -43,19 +47,27 @@ const App: Reagitct.FC = () => {
         return <AboutPage onNavigate={handleNavigate} />;
       case Page.CONTACT:
         return <ContactPage onNavigate={handleNavigate} />;
+      case Page.GET_STARTED:
+        return <GetStartedPage onNavigate={handleNavigate} onClose={() => handleNavigate(previousPage)} />;
       default:
         return <HomePage onNavigate={handleNavigate} onShowDetails={handleShowDetails} />;
     }
   };
 
+  const isAuthPage = currentPage === Page.GET_STARTED;
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header onNavigate={handleNavigate} currentPage={currentPage} />
-      <main className="flex-grow">
-        {renderPage()}
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-light-bg dark:bg-gray-900 transition-colors duration-300">
+        {!isAuthPage && <Header onNavigate={handleNavigate} currentPage={currentPage} />}
+        
+        <main className="flex-grow">
+          {renderPage()}
+        </main>
+
+        {!isAuthPage && <Footer />}
+      </div>
+    </ThemeProvider>
   );
 };
 
