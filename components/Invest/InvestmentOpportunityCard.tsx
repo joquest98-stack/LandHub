@@ -1,74 +1,95 @@
-import React from 'react';
-import { Listing } from '../../types';
-import Button from '../ui/Button';
+import React from "react";
+import { Listing } from "../../types";
+import Button from "../ui/Button";
 
 interface InvestmentCardProps {
   opportunity: Listing;
+  onShowDetails?: (id: string) => void;
 }
 
-const InvestmentCard: React.FC<InvestmentCardProps> = ({ opportunity: listing }) => {
+const InvestmentCard: React.FC<InvestmentCardProps> = ({
+  opportunity: listing,
+  onShowDetails,
+}) => {
+  const formatNumber = (num: number) =>
+    new Intl.NumberFormat("en-US").format(num);
 
-    const formatCurrency = (amount: number) => {
-        if (amount >= 1_000_000) {
-            return `UGX ${(amount / 1_000_000).toFixed(0)}M`;
-        }
-        return `UGX ${new Intl.NumberFormat('en-US').format(amount)}`;
-    };
+  return (
+    <div className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+      {/* Image Section */}
+      <div className="relative h-72 overflow-hidden">
+        <img
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          src={listing.imageUrl}
+          alt={listing.title}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60"></div>
 
-    return (
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col border border-gray-100 group">
-            <div className="relative">
-                <div className="overflow-hidden rounded-t-2xl">
-                    <img 
-                        className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105" 
-                        src={listing.imageUrl} 
-                        alt={listing.title} 
-                    />
-                </div>
-                <div className="absolute top-4 right-4 bg-accent-green bg-opacity-90 backdrop-blur-sm px-3 py-1 rounded-lg text-sm font-bold text-white">
-                    {listing.roi}% ROI
-                </div>
-            </div>
-            
-            <div className="p-5 flex flex-col flex-grow">
-                <div className="flex items-center text-slate-gray text-sm">
-                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                    <span>{listing.location}</span>
-                </div>
-
-                <h3 className="text-2xl font-bold text-text-dark mt-2">{formatCurrency(listing.price)}</h3>
-                <p className="text-sm text-slate-gray">{listing.area} acres</p>
-                
-                <div className="mt-4">
-                    <div className="flex justify-between items-center text-sm mb-1">
-                        <span className="font-medium text-slate-gray">Funded</span>
-                        <span className="font-bold text-text-dark">{listing.fundingProgress}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                            className="bg-accent-green h-2 rounded-full" 
-                            style={{ width: `${listing.fundingProgress}%` }}
-                        ></div>
-                    </div>
-                </div>
-
-                <div className="flex items-center text-slate-gray text-sm mt-3">
-                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015.5-4.96A5 5 0 0117 11v5H1v-5a5 5 0 015-5z" />
-                    </svg>
-                    <span>{listing.investors} investors</span>
-                </div>
-
-                <div className="mt-auto pt-5">
-                    <Button variant="primary" className="w-full rounded-lg">
-                        Invest Now
-                    </Button>
-                </div>
-            </div>
+        {/* Category Badge - Top Left */}
+        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg text-xs font-bold text-text-dark shadow-sm uppercase tracking-wide z-10">
+          {listing.propertyType}
         </div>
-    );
+      </div>
+
+      {/* Content Section */}
+      <div className="p-5 flex flex-col flex-grow relative">
+        {/* Title */}
+        <h3 className="text-xl font-bold text-text-dark mb-2 truncate leading-tight group-hover:text-cta-brown transition-colors duration-300">
+          {listing.title}
+        </h3>
+
+        {/* Location */}
+        <div className="flex items-center text-slate-gray text-sm mb-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 mr-1 text-accent-green flex-shrink-0"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span className="truncate">{listing.location}</span>
+        </div>
+
+        {/* Footer: Swap Container */}
+        {/* 
+                    Mobile/Tablet: Auto height, stacked content, always visible.
+                    Desktop (lg): Fixed height, swap animation on hover.
+                */}
+        <div className="mt-auto relative lg:h-12 lg:overflow-hidden">
+          {/* State 1: Price and Area */}
+          <div className="flex items-end justify-between mb-3 lg:mb-0 lg:absolute lg:inset-0 lg:transition-all lg:duration-500 lg:ease-in-out lg:transform lg:group-hover:-translate-y-full lg:group-hover:opacity-0">
+            <div>
+              <span className="text-xl font-bold text-cta-brown block leading-none">
+                USD {formatNumber(listing.price)}
+              </span>
+              <span className="text-xs text-slate-gray font-medium mt-1 block">
+                / acre
+              </span>
+            </div>
+            <span className="text-sm font-medium text-text-dark mb-1">
+              {listing.area} acres
+            </span>
+          </div>
+
+          {/* State 2: View Details Button */}
+          <div className="block lg:absolute lg:inset-0 lg:flex lg:items-end lg:justify-center lg:transition-all lg:duration-500 lg:ease-in-out lg:transform lg:translate-y-full lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+            <Button
+              variant="primary"
+              className="w-full shadow-md rounded-lg text-sm bg-cta-brown hover:bg-cta-brown-dark text-white font-semibold py-2.5"
+              onClick={() => onShowDetails && onShowDetails(listing.id)}
+            >
+              View Details
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default InvestmentCard;

@@ -1,7 +1,7 @@
 // User roles
 export enum UserRole {
-  ADMIN = 'admin',
-  LANDOWNER = 'landowner',
+  ADMIN = "admin",
+  PROPERTY_OWNER = "property_owner",
 }
 
 // User profile
@@ -20,10 +20,20 @@ export interface AuthContextType {
 
 // Property listing status
 export enum ListingStatus {
-  APPROVED = 'Approved',
-  PENDING = 'Pending',
-  REJECTED = 'Rejected',
-  DRAFT = 'Draft',
+  APPROVED = "Approved",
+  PENDING = "Pending",
+  REJECTED = "Rejected",
+  DRAFT = "Draft",
+}
+
+// Review interface
+export interface Review {
+  id: string;
+  userName: string;
+  userAvatar?: string;
+  rating: number; // 1-5
+  comment: string;
+  date: string;
 }
 
 // Property listing
@@ -35,27 +45,32 @@ export interface Listing {
   location: string;
   price: number;
   area: number; // in acres
-  landType: string;
+  propertyType: string;
   imageUrl: string;
   status: ListingStatus;
   description?: string; // Optional description
+  investors?: number;
+  featured?: boolean;
+  reviews?: Review[];
+  investmentCategory?: "Short Term" | "Long Term";
 }
 
 // Page identifiers
 export enum Page {
-    HOME = 'HOME',
-    HOW_IT_WORKS = 'HOW_IT_WORKS',
-    BUY_LAND = 'BUY_LAND',
-    INVEST = "INVEST",
-    ABOUT = "ABOUT",
-    CONTACT = "CONTACT",
+  HOME = "HOME",
+  HOW_IT_WORKS = "HOW_IT_WORKS",
+  BUY_PROPERTIES = "BUY_PROPERTIES",
+  INVEST = "INVEST",
+  ABOUT = "ABOUT",
+  CONTACT = "CONTACT",
+  PROPERTY_DETAILS = "PROPERTY_DETAILS",
 }
 
 // Document status
 export enum DocumentStatus {
-    VERIFIED = 'Verified',
-    PENDING = 'Pending',
-    REJECTED = 'Rejected',
+  VERIFIED = "Verified",
+  PENDING = "Pending",
+  REJECTED = "Rejected",
 }
 
 // Uploaded document
