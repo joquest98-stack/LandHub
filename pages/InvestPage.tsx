@@ -51,10 +51,10 @@ const ROI_DATA = [
 ];
 
 const RECENT_TRANSACTIONS = [
-    { id: 1, type: 'Dividend', title: 'Q3 Dividend Payout', amount: '+ UGX 450,000', date: '2 days ago', icon: '💰', positive: true },
-    { id: 2, type: 'Purchase', title: 'Investment in "Legacy Farms"', amount: '- UGX 5,000,000', date: '5 days ago', icon: '🛒', positive: false },
-    { id: 3, type: 'Maintenance', title: 'Fencing Fee - Mukono', amount: '- UGX 150,000', date: '1 week ago', icon: '🔧', positive: false },
-    { id: 4, type: 'Appreciation', title: 'Portfolio Value Update', amount: '+ UGX 1,200,000', date: '2 weeks ago', icon: '📈', positive: true },
+    { id: 1, type: 'Dividend', title: 'Q3 Dividend Payout', amount: '+ USD 450,000', date: '2 days ago', icon: '💰', positive: true },
+    { id: 2, type: 'Purchase', title: 'Investment in "Legacy Farms"', amount: '- USD 5,000,000', date: '5 days ago', icon: '🛒', positive: false },
+    { id: 3, type: 'Maintenance', title: 'Fencing Fee - Mukono', amount: '- USD 150,000', date: '1 week ago', icon: '🔧', positive: false },
+    { id: 4, type: 'Appreciation', title: 'Portfolio Value Update', amount: '+ USD 1,200,000', date: '2 weeks ago', icon: '📈', positive: true },
 ];
 
 const TOP_PROPERTIES = [

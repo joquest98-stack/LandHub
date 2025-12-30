@@ -22,7 +22,7 @@ const getExtendedDetails = (id: string) => {
     currentUsage: 'Fallow / Vacant',
     zoning: 'Residential (R3) & Mixed Use',
     targetYield: '12-15%',
-    minInvestment: 'UGX 50,000',
+    minInvestment: 'USD 50,000',
     holdingPeriod: '3-5 Years',
     managementFee: '2%',
     platformFee: '1%',
@@ -87,13 +87,13 @@ const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ listingId, on
     );
   }
 
-  const formatUGX = (val: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'UGX', minimumFractionDigits: 0 }).format(val);
+  const formatUSD = (val: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(val);
   const formatUSD = (val: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(val);
 
   const investmentAmount = shareCount * sharePrice;
   const projectedReturnAmount = investmentAmount * (listing.roi / 100);
-  const totalValueUGX = listing.price * listing.area * 3700;
-  const fundedAmountUGX = totalValueUGX * (listing.fundingProgress / 100);
+  const totalValueUSD = listing.price * listing.area * 3700;
+  const fundedAmountUSD = totalValueUSD * (listing.fundingProgress / 100);
 
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();
@@ -501,8 +501,8 @@ const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ listingId, on
                                 <div className="bg-cta-brown h-full rounded-full transition-all duration-1000 ease-out" style={{ width: `${listing.fundingProgress}%` }}></div>
                             </div>
                             <div className="flex justify-between text-xs text-slate-gray dark:text-gray-400 mt-1">
-                                <span>{formatUGX(fundedAmountUGX)} raised</span>
-                                <span>Target: {formatUGX(totalValueUGX)}</span>
+                                <span>{formatUSD(fundedAmountUSD)} raised</span>
+                                <span>Target: {formatUSD(totalValueUSD)}</span>
                             </div>
                             <div className="text-xs text-center text-accent-green dark:text-accent-green font-medium pt-2 border-t border-gray-200/50 dark:border-gray-600/50 mt-2">
                                 📅 Dividends Paid Quarterly
@@ -516,7 +516,7 @@ const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ listingId, on
                             </h4>
                             <div className="bg-light-bg dark:bg-gray-700/30 rounded-xl p-4 border border-gray-100 dark:border-gray-700">
                                 <div className="flex items-center justify-between mb-4">
-                                    <span className="text-sm text-slate-gray dark:text-gray-400">Shares (UGX 50k each)</span>
+                                    <span className="text-sm text-slate-gray dark:text-gray-400">Shares (USD 50k each)</span>
                                     <div className="flex items-center space-x-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 px-2 py-1">
                                         <button onClick={() => setShareCount(Math.max(1, shareCount - 1))} className="w-10 h-10 flex items-center justify-center text-slate-gray dark:text-gray-400 hover:text-cta-brown font-bold active:bg-gray-100 dark:active:bg-gray-700 rounded text-xl">-</button>
                                         <span className="font-bold w-12 text-center text-text-dark dark:text-white text-lg">{shareCount}</span>
@@ -539,11 +539,11 @@ const PropertyDetailsPage: React.FC<PropertyDetailsPageProps> = ({ listingId, on
                                 <div className="space-y-2 pt-3 border-t border-gray-200/50 dark:border-gray-600/50">
                                     <div className="flex justify-between text-sm">
                                         <span className="text-slate-gray dark:text-gray-400">Total Investment:</span>
-                                        <span className="font-bold text-text-dark dark:text-white">{formatUGX(investmentAmount)}</span>
+                                        <span className="font-bold text-text-dark dark:text-white">{formatUSD(investmentAmount)}</span>
                                     </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-slate-gray dark:text-gray-400">Proj. 1Y Return:</span>
-                                        <span className="font-bold text-green-600 dark:text-green-400">+{formatUGX(projectedReturnAmount)}</span>
+                                        <span className="font-bold text-green-600 dark:text-green-400">+{formatUSD(projectedReturnAmount)}</span>
                                     </div>
                                 </div>
                             </div>

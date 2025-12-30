@@ -82,7 +82,7 @@ const GetStartedPage: React.FC<GetStartedPageProps> = ({ onNavigate, onClose }) 
                     </h2>
                     <p className="text-gray-300 text-lg">
                         {isSignUp
-                            ? "Start your journey towards property ownership with as little as UGX 50,000. Secure, transparent, and profitable."
+                            ? "Start your journey towards property ownership with as little as USD 50,000. Secure, transparent, and profitable."
                             : "Track your assets, monitor returns, and discover new opportunities in the Ugandan real estate market."
                         }
                     </p>

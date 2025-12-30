@@ -71,7 +71,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
     };
     
     const formatPrice = (price: number) => {
-        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'UGX', minimumFractionDigits: 0 }).format(price);
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(price);
     };
 
     return (

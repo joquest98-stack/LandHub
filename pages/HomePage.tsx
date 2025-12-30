@@ -24,7 +24,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onShowDetails }) => {
                         <span className="text-accent-green block md:inline">at a Time</span>
                     </h1>
                     <p className="mt-4 text-base sm:text-lg md:text-xl max-w-3xl mx-auto text-slate-gray dark:text-gray-100 font-medium transition-colors duration-300 px-2 shadow-sm">
-                        Start investing in verified Ugandan properties with as little as UGX 50,000. 
+                        Start investing in verified Ugandan properties with as little as USD 50,000. 
                         Earn annual returns while building capital toward full ownership.
                     </p>
                     <p className="mt-2 text-base sm:text-lg md:text-xl font-bold text-slate-gray dark:text-white transition-colors duration-300">
