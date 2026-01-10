@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 
 interface StepCardProps {
   stepNumber: number;
@@ -8,7 +7,12 @@ interface StepCardProps {
   description: string;
 }
 
-const StepCard: React.FC<StepCardProps> = ({ stepNumber, icon, title, description }) => {
+const StepCard: React.FC<StepCardProps> = ({
+  stepNumber,
+  icon,
+  title,
+  description,
+}) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-1.5 flex flex-col items-center">
       <div className="relative mb-6">
@@ -19,8 +23,12 @@ const StepCard: React.FC<StepCardProps> = ({ stepNumber, icon, title, descriptio
           {stepNumber}
         </div>
       </div>
-      <h3 className="text-xl font-bold text-text-dark dark:text-white mb-3">{title}</h3>
-      <p className="text-slate-gray dark:text-gray-400 text-base leading-relaxed">{description}</p>
+      <h3 className="text-xl font-bold text-text-dark dark:text-white mb-3">
+        {title}
+      </h3>
+      <p className="text-slate-gray dark:text-gray-400 text-base leading-relaxed">
+        {description}
+      </p>
     </div>
   );
 };

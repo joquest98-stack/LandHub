@@ -1,6 +1,6 @@
 export enum UserRole {
-  ADMIN = 'admin',
-  PROPERTY_OWNER = 'property_owner',
+  ADMIN = "admin",
+  PROPERTY_OWNER = "property_owner",
 }
 
 export interface User {
@@ -16,10 +16,10 @@ export interface AuthContextType {
 }
 
 export enum ListingStatus {
-  APPROVED = 'Approved',
-  PENDING = 'Pending',
-  REJECTED = 'Rejected',
-  DRAFT = 'Draft',
+  APPROVED = "Approved",
+  PENDING = "Pending",
+  REJECTED = "Rejected",
+  DRAFT = "Draft",
 }
 
 export interface Review {
@@ -46,24 +46,28 @@ export interface Listing {
   investors?: number;
   featured?: boolean;
   reviews?: Review[];
-  investmentCategory?: 'Short Term' | 'Long Term';
+  investmentCategory?: "Short Term" | "Long Term";
 }
 
 export enum Page {
-    HOME = 'HOME',
-    HOW_IT_WORKS = 'HOW_IT_WORKS',
-    BUY_PROPERTIES = 'BUY_PROPERTIES',
-    INVEST = "INVEST",
-    ABOUT = "ABOUT",
-    CONTACT = "CONTACT",
-    PROPERTY_DETAILS = "PROPERTY_DETAILS",
-    GET_STARTED = "GET_STARTED",
+  HOME = "HOME",
+  HOW_IT_WORKS = "HOW_IT_WORKS",
+  BUY_PROPERTIES = "BUY_PROPERTIES",
+  INVEST = "INVEST",
+  ABOUT = "ABOUT",
+  CONTACT = "CONTACT",
+  PROPERTY_DETAILS = "PROPERTY_DETAILS",
+  GET_STARTED = "GET_STARTED",
+  DASHBOARD = "DASHBOARD",
+  TERMS = "TERMS",
+  PRIVACY = "PRIVACY",
+  DISCLAIMER = "DISCLAIMER",
 }
 
 export enum DocumentStatus {
-    VERIFIED = 'Verified',
-    PENDING = 'Pending',
-    REJECTED = 'Rejected',
+  VERIFIED = "Verified",
+  PENDING = "Pending",
+  REJECTED = "Rejected",
 }
 
 export interface Document {

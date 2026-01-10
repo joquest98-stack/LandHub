@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface FaqItemProps {
   question: string;
@@ -18,16 +17,25 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
       >
         <span>{question}</span>
         <svg
-          className={`h-6 w-6 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+          className={`h-6 w-6 transform transition-transform duration-300 ${
+            isOpen ? "rotate-180" : "rotate-0"
+          }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
       <div
-        className={`transition-max-height duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}
+        className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-96" : "max-h-0"
+        }`}
       >
         <div className="px-6 pb-6 text-slate-gray dark:text-gray-400 leading-relaxed">
           {answer}
